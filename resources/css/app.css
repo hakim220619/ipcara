@@ -1,0 +1,162 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans:
+        Instrument Sans, ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar-background);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
+    --color-glow: var(--glow);
+    --color-success: var(--success);
+    --color-warning: var(--warning);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+@layer utilities {
+    body,
+    html {
+        --font-sans:
+            'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+            'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+            'Noto Color Emoji';
+    }
+}
+
+:root {
+    /* IPCARA theme: biru muda (#76C0EC) dan putih, kesan digital */
+    --background: hsl(0 0% 100%);
+    --foreground: hsl(222 47% 15%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(222 47% 15%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(222 47% 15%);
+    --primary: hsl(202 76% 69%);
+    --primary-foreground: hsl(222 47% 15%);
+    --secondary: hsl(202 40% 94%);
+    --secondary-foreground: hsl(222 47% 20%);
+    --muted: hsl(202 30% 96%);
+    --muted-foreground: hsl(215 20% 45%);
+    --accent: hsl(202 90% 94%);
+    --accent-foreground: hsl(202 80% 25%);
+    --destructive: hsl(0 78% 55%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: hsl(202 32% 89%);
+    --input: hsl(202 32% 87%);
+    --ring: hsl(202 80% 55%);
+    --chart-1: hsl(202 76% 69%);
+    --chart-2: hsl(199 89% 48%);
+    --chart-3: hsl(224 71% 40%);
+    --chart-4: hsl(190 90% 75%);
+    --chart-5: hsl(215 25% 55%);
+    --radius: 0.75rem;
+    --sidebar-background: #90caf9;
+    --sidebar-foreground: hsl(215 60% 16%);
+    --sidebar-primary: hsl(215 65% 28%);
+    --sidebar-primary-foreground: hsl(0 0% 100%);
+    --sidebar-accent: #cde7fc;
+    --sidebar-accent-foreground: hsl(215 70% 20%);
+    --sidebar-border: hsl(210 60% 60% / 0.45);
+    --sidebar-ring: hsl(215 65% 28%);
+    --sidebar: #90caf9;
+
+    --glow: hsl(202 90% 70%);
+    --success: hsl(150 70% 40%);
+    --warning: hsl(38 92% 50%);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Utilitas visual IPCARA */
+@utility glow-card {
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--glow) 25%, transparent),
+        0 0 24px -6px color-mix(in srgb, var(--glow) 35%, transparent);
+}
+
+@utility glow-text {
+    text-shadow: 0 0 18px color-mix(in srgb, var(--glow) 55%, transparent);
+}
+
+@utility bg-grid-glow {
+    background-image:
+        radial-gradient(ellipse at top left, color-mix(in srgb, var(--glow) 12%, transparent), transparent 55%),
+        radial-gradient(ellipse at bottom right, hsl(212 90% 60% / 0.12), transparent 55%);
+}

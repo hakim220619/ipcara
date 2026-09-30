@@ -1,0 +1,14 @@
+{
+    "name": "IPCARA - Infection Prevention and Control Adaptive Recommendation App",
+    "short_name": "IPCARA",
+    "description": "Aplikasi pembelajaran adaptif Pencegahan dan Pengendalian Infeksi untuk mahasiswa keperawatan.",
+    "start_url": "/dashboard",
+    "display": "standalone",
+    "background_color": "#0a1628",
+    "theme_color": "#0a1628",
+    "lang": "id",
+    "icons": [
+        { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+        { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    ]
+}
